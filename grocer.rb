@@ -24,6 +24,7 @@ def consolidate_cart(cart)
        :clearance => cart[x][:clearance],
        :count => 1
      }
+     newarr.push(new_item)
    else 
      cart[x][:count] += 1 
      newarr.push(cart[x])
