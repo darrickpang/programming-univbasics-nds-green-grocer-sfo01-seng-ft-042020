@@ -1,6 +1,7 @@
 require 'pry'
 def find_item_by_name_in_collection(name, collection)
   x = 0 
+  
   while x < collection.length do 
     if(collection[x][:item] === name)
       return collection[x]
@@ -13,6 +14,7 @@ end
 def consolidate_cart(cart)
  newarr = []
  x = 0 
+ 
  while x < cart.length do 
    if(cart[x][:count]=== nil)
      cart[x][:count] = 1 
@@ -31,12 +33,14 @@ def apply_coupons(cart, coupons)
   while x < coupons.length do 
     discount = find_item_by_name_in_collection(coupons[x][:item], cart)
     if(discount[:count]/coupons[x][:num] >= 1)
+      
       info = {
         :item => "#{coupons[x][:item]} W/COUPON",
         :price => (coupons[x][:cost]/coupons[x][:num]).round(2),
         :clearance => discount[:clearance],
         :count => discount[:count] - (discount[:count] % coupons[x][:num])
       }
+      
       cart.push(info)
       discount[:count] %=  coupons[x][:num]
     end 
@@ -68,6 +72,7 @@ def checkout(cart, coupons)
    
   x = 0
   sum = 0
+  
   while x < clearance.length do
     sum += clearance[x][:price] * clearance[x][:count]
     x += 1
