@@ -68,7 +68,6 @@ def checkout(cart, coupons)
    
   x = 0
   sum = 0
-  #binding.pry
   while x < third.length do
     total = third[x][:price] * third[x][:count]
     sum += total.round(2)
