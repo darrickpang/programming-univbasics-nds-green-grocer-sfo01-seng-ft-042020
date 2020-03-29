@@ -50,10 +50,12 @@ def apply_clearance(cart)
   newarr = []
 
   while x < cart.length do
-    if cart[x][:clearance] === true 
-      cart[x][:price] *= 0.8  
+    item = cart[x]
+    if (item[:clearance] === true)
+      item[:price] *= 0.8
+      (item[:price]).round(2)
     end
-    newarr.push(cart[x][:price])
+    newarr.push(item)
     x += 1 
   end
   return newarr 
@@ -68,11 +70,12 @@ def checkout(cart, coupons)
   sum = 0
   #binding.pry
   while x < third.length do
-    sum  += (third[x][:price] * third[x][:count]).round(2)
+    total = third[x][:price] * third[x][:count]
+    sum += total.round(2)
     x += 1
   end
   if sum > 100
-    sum*=0.9
+    sum *= 0.9
   end 
   return sum
 end
