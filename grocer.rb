@@ -26,8 +26,7 @@ def consolidate_cart(cart)
      }
      newarr.push(new_item)
    else 
-     cart[x][:count] += 1 
-     newarr.push(cart[x])
+     newarr.push(new_item)
    end 
    x += 1 
  end 
