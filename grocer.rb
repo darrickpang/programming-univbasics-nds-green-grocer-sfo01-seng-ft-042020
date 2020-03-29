@@ -69,8 +69,7 @@ def checkout(cart, coupons)
   x = 0
   sum = 0
   while x < clearance.length do
-    total = clearance[x][:price] * clearance[x][:count]
-    sum += total.round(2)
+    sum += clearance[x][:price] * clearance[x][:count]
     x += 1
   end
   if sum > 100
